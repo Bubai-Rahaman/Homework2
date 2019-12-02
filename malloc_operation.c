@@ -8,9 +8,9 @@ int main()
 	
 	
 	//creating array of 100 float elements
-	float_100 = (float*)malloc(100*sizeof(float));
+	float_100 = (float*)calloc(100,sizeof(float));
 	
-	printf("The value of the array is\n");
+	printf("The value of array\n");
 	//Assiging value to the array
 	for(int i=0;i<100;i++)
 	{
