@@ -22,30 +22,30 @@ int main()
 		printf("%f\n",float_2[i]);
 	}
 	
-	FILE *txt_pointer ; 
+	FILE *bin_pointer ; 
       
    
       
-   txt_pointer =fopen("txt_output.txt", "w") ; 
+   bin_pointer =fopen("binary_output.bin", "wb") ; 
       
 
-    if ( txt_pointer == NULL ) 
+    if ( bin_pointer == NULL ) 
     { 
-        printf( "txt_output.txt file failed to open." ) ; 
+        printf( "binary_output.bin file failed to open." ) ; 
     } 
     else
     { 
           
-        printf("The txt file is now opened to write.\n") ; 
+        printf("The binary file is now opened to write.\n") ; 
           
         
        // writing in the file
-        fprintf(txt_pointer, "%f \n %f\n", float_2[0],float_2[1]);
-            
+       fwrite(&float_2[0],sizeof(float_2[0]),1,bin_pointer);
+       fwrite(&float_2[1],sizeof(float_2[1]),1,bin_pointer);
        // Closing the file 
-       fclose(txt_pointer) ; 
+       fclose(bin_pointer) ; 
           
-        printf("Output written sucessfully in txt_output.txt\n"); 
+        printf("Output written sucessfully in binary_output.bin\n"); 
         printf("The file is closed.\n") ; 
     } 
   
